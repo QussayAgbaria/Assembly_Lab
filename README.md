@@ -4,4 +4,4 @@ everything you want to assembly lab</br>
 <li>DOSBox0.74-3-win32-installer (Compiler)</li>
 <li>TASM</li>
 </lo>
- tasm ثم وضعه فيى ملف  .asm فيجب تحويله الى امتداد .txt  عندما تقوم بتنزيل الملف الذي يحتوي على كود فانه يحمل الامتداد
+ When you download the file containing the code it carries the extension .txt it should be converted to an extension .asm and then placed in the tasm folder.
