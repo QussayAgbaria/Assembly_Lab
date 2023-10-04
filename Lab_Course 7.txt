@@ -1,0 +1,60 @@
+dosseg
+.model small
+.data
+msg1 db "enter char :",10,13,"$"
+msg2 db "enter number :",10,13,"$"
+space db "",10,13,"$"
+.code
+main:
+mov ax,@data
+mov ds,ax
+
+;print enter char
+mov ah,9
+mov dx,offset msg1
+int 21h
+
+;input char
+mov ah,1
+int 21h
+
+;char -> al reg
+
+mov bl,al
+; char -> bl reg
+
+mov ah,9
+mov dx,offset space
+int 21h
+
+;print enter number
+mov ah,9
+mov dx,offset msg2
+int 21h
+
+;input number
+mov ah,1
+int 21h
+;5 => al=35h
+;number -> al reg
+mov cl,al
+;number ->cl
+sub cl,30h
+;cl = 35h => 5h=>5d
+ag:
+;cl =3 => 2 => 1 => 0
+cmp cl,0d
+jz ex
+
+mov ah,2
+mov dl,bl
+int 21h
+
+dec cl
+
+jmp ag
+
+ex:
+mov ah,4ch
+int 21h
+end
