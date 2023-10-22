@@ -1,0 +1,61 @@
+Dosseg 
+.model small 
+.data 
+msg1 db "please Enter numbers :",10,13,"$"   
+msg2 db "Great",10,13,"$"   
+msg3 db "Less",10,13,"$" 
+.code
+Main:
+Mov ax,@data
+Mov ds,ax
+
+mov ah,9
+mov dx,offset msg1
+int 21h
+
+mov bl,0
+mov bh,10
+
+ag:
+mov ah,1
+int 21h
+
+cmp al,13
+je ex
+
+sub al,30h
+
+mov cl,al
+
+mov al,bh
+mov ah,0
+
+mul bl
+
+add cl,al
+mov bl,cl
+jmp ag
+
+
+ex:
+
+;sum -> bl
+cmp bl,100
+ja great
+
+mov ah,9
+mov dx,offset msg3
+int 21h
+jmp endpro
+great:
+
+mov ah,9
+mov dx,offset msg2
+int 21h
+
+endpro:
+
+
+MOV AH,4CH 
+INT 21H
+end main

@@ -1,0 +1,46 @@
+Dosseg 
+.model small 
+.stack 100
+.data 
+.code
+Main:
+Mov ax,@data
+Mov ds,ax
+
+
+mov bl,10110010b
+
+mov al,"#"
+mov ah,"#"
+push ax
+
+mov al,bl
+mov bl,10d
+
+ag:
+
+mov ah,0
+div bl
+push ax 
+
+cmp al,0
+jz qt
+jmp ag 
+
+qt:
+pop ax
+cmp ah,"#"
+jz ex
+
+mov dl,ah
+add dl,30h
+mov ah,2
+int 21h
+
+jmp qt
+
+ex:
+
+MOV AH,4CH 
+INT 21H
+end main
