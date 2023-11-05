@@ -1,0 +1,53 @@
+Dosseg 
+.model small 
+.stack 100
+.data 
+.code
+main:
+Mov ax,@data
+Mov ds,ax
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+MOV AH, 0Fh ; get current video mode
+INT 10h
+PUSH AX ; save current video mode
+MOV AH, 00h ; set video mode
+MOV AL, 12h ; graphics 640x480
+INT 10h
+
+; draw a green color pixel at location (320, 240)
+
+MOV AH, 0Ch ; Function 0Ch: Write pixel dot
+MOV AL, 02 ; specify green color
+
+
+
+
+MOV CX, 320 ; column 320
+MOV DX, 240 ; row 240
+INT 10h
+
+
+
+
+
+MOV AH, 07h ; wait for key press to exit program
+INT 21h
+POP AX ; retrieve original video mode
+MOV AH, 00h
+INT 10h ; restore original video mode
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+
+
+
+
+	MOV AH,4CH 
+	INT 21H
+end main
