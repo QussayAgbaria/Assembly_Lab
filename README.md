@@ -24,3 +24,7 @@ course 12  : task 1 - > Enter numbers to make a multidigit number, then check if
 
  <h2>Assembly Course 14:</h2>
 course 14  : task 1 - > Print multidigit number. </br>
+
+ <h2>Assembly Course 15:</h2>
+course 15.1  : task 1 - > Drawing a dot. </br>
+course 15.2  : task 2 - > Drawing a line.</br>
